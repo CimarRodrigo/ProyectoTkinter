@@ -1,11 +1,12 @@
 import tkinter as tk
 import conversiones
 import tablas
+import menu_principal as principal
 
 def redirigir():
     if radio_state.get() == 1:
         ventana_tablas()
-    else:
+    elif radio_state.get() == 2:
         ventana_conversiones()
 
 def ventana_conversiones():
@@ -53,6 +54,11 @@ def mostrar_main():
     button = tk.Button(window, text="Seleccionar", command=redirigir)
     button.pack()
 
-    button_salir = tk.Button(window, text="Salir", command=window.quit)
+    button_salir = tk.Button(window, text="Volver", command=volver_menu)
     button_salir.pack()
     window.mainloop()
+
+
+def volver_menu():
+    window.destroy()
+    principal.mostrar_menu_principal()
